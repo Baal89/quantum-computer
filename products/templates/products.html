@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    
+                    {% for product in products %}
+                    
+                        <div class="col-12">
+                            <div class="row">
+                                <a href="#">
+                                    <div class="col-12 col-md-4 image-container">
+                                        <img src="{{ MEDIA_URL }}{{ product.image }}">
+                                    </div>
+                                </a>
+                                <div class="col-12 col-md-4">
+                                    <p>{{ product.name }}</p>
+                                </div>
+                                <div class="col-12 col-4">
+                                    <p class="col-6 col-md-4">{{ product.price }}</p>
+                                    <a type="button" class="col-6 col-md-4 product-details" href="{% url 'get_product' product.id %}">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

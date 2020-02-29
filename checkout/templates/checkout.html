@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+{% load static from staticfiles %} 
+{% load bootstrap_tags %} 
+
+{% block head_js %}
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="">
+    //<![CDATA[
+    Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+
+{% endblock %} 
+
+{% block content %}
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+
+            {% for item in cart_item %}
+
+            <div class="col-12">
+                <div class="row">
+                    <a href="#">
+                        <div class="col-12 col-md-4 image-container">
+                            <img src="{{ MEDIA_URL }}{{ item.product.image }}">
+                        </div>
+                    </a>
+                    <div class="col-12 col-md-4">
+                        <p>{{ item.product.name }}</p>
+                    </div>
+                    <div class="col-12 col-4">
+                        <p class="col-6 col-md-4">{{ item.product.price }}</p>
+                        <a type="button" class="col-6 col-md-4 product-details" href="{% url 'get_product' product.id %}">View Product</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
