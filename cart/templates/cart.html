@@ -1,47 +1,61 @@
-{% extends 'base.html' %}
-
-{% load static from staticfiles %}
-
-{% load bootstrap_tags %}
+{% extends 'base.html' %} 
+{% load static from staticfiles %} 
+{% load bootstrap_tags %} 
 
 {% block content %}
-
-
 <section>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-4">
-                
+            <div class="col-12">
+                <h2>Your Shopping Basket</h2>
             </div>
-            <div class="col-8">
+        </div>
+      
+            {% for item in cart_items %}
+
+            <div class="container checkout-container">
                 <div class="row">
-                    
-                    {% for product in products %}
-                    
-                        <div class="col-12">
-                            <div class="row">
-                                <a href="#">
-                                    <div class="col-12 col-md-4 image-container">
-                                        <img src="{{ MEDIA_URL }}{{ item.product.image }}">
+                    <div class="col-2">
+                        <img class="img-responsive checkout-image" src="{{ MEDIA_URL }}{{ item.product.image }}">
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h5 class="col-12">{{ item.product.name }}</h5>
+                            <form class="form-inline col-12 product-form" method="POST" action="{% url 'adjust_cart' item.id %}">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                    <label for="exampleInputAmount" class="sr-only">New Qty</label>
+                                    <div class=" input-group">
+                                        <div class="input-group-addon">Quantity</div>
+                                        <input name="quantity" type="number" min="0" max="999" class="form-control">
+                                        <div class="input-group-addon quantity">{{ item.quantity }}</div>
                                     </div>
-                                </a>
-                                <div class="col-12 col-md-4">
-                                    <p>{{ item.product.name }}</p>
                                 </div>
-                                <div class="col-12 col-4">
-                                    <p class="col-6 col-md-4">{{ item.product.price }}</p>
-                                    <a type="button" class="col-6 col-md-4 product-details" href="{% url 'get_product' product.id %}">View Product</a>
-                                </div>
-                            </div>
+                                <button type="submit" id="modify" class="view-product">Modify</button>
+                            </form>
                         </div>
-                    
-                    {% endfor %}
-                    
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+   
+        <div class="row">
+            <div class="col-8">
+
+            </div>
+
+            <div class="col-4">
+                <div class="row d-flex align-items-center">
+                    <p class="col-6">Total:</p>
+                    <p class="col-6 product-price">{{ total }}</p>
+                    <a href="{% url 'checkout' %}" class="view-product" role="button" id="checkout">Checkout</a>
                 </div>
             </div>
         </div>
+
+
     </div>
 </section>
-          
 
 {% endblock %}
