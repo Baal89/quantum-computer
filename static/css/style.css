@@ -1,5 +1,61 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+/*----------------------------------------------------------------------base.html*/
+
+.navbar-brand {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-size: 30px;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    color: #e4002b;
+}
+
+.auth {
+    color: #cccecf;
+}
+
+.auth:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+#header {
+    background-color: #181818;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    margin-left: 30px;
+    font-size: 18px;
+}
+
+.middle {
+    background-color: #222222;
+    padding: 15px 0;
+}
+
+#searchbox {
+    border-radius: 20px;
+    padding: 0 30px;
+    font-size: 14px;
+}
+
+.icon {
+    color: #fff;
+    transition: all 0.5;
+}
+
+.icon:hover {
+    color: #e4002b;
+}
+
+#search {
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+}
 /*----------------------------------------------------------------------products.html*/
 
 .image-container img {
@@ -128,4 +184,70 @@ span {
 
 .product-form {
     margin-top: 25px;
+}
+
+/*----------------------------------------------------------------------footer*/
+
+
+footer {
+    background-color: #262626;
+    color: white;
+}
+
+footer a {
+    padding: 0 5px;
+    text-decoration: none;
+}
+
+footer i {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #181818;
+    background-color: #fff;
+    transition: color 0.2s ease-in-out;
+    border-radius: 100%;
+    padding: 10px;
+}
+
+footer i:hover {
+    color: #e4002b;
+    text-decoration: none;
+}
+
+
+footer p {
+    font-size: 15px;
+    line-height: 12px;
+    color: #989898;
+}
+
+.details-header {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+
+.social-media {
+    margin: 15px auto;
+}
+
+.credit {
+    background-color: #1b1b1b;
+    padding: 15px 0;
+    margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-brand {
+        font-size: 30px;
+    }
+    footer p {
+        font-size: 12px;
+    }
+    .details-header {
+        font-size: 15px;
+    }
+    footer i {
+        font-size: 15px;
+    }
 }
