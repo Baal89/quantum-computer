@@ -1,3 +1,4 @@
+from django.views.generic.list import ListView
 from django.shortcuts import render
 from .models import Product
 
@@ -19,3 +20,12 @@ def get_product(request, id):
     
     args = {'product': product}
     return render(request, 'get_product.html', args)
+    
+class amd_processors(ListView):
+    template_name = 'amd_processors.html'
+    model = Product
+    
+    def get_context_data(self, **kwargs):
+        context = super(amd_processors, self).get_context_data(**kwargs)
+        context['product_type'] = 'AMD_CPU'
+        return context
