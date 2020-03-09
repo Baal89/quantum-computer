@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 * {box-sizing:border-box}
 
+
+
 /*----------------------------------------------------------------------base.html*/
 
 .navbar-brand {
@@ -133,7 +135,7 @@
 
 .image-container img {
     position: relative;
-    width: 325%;
+    width: 75%;
 }
 
 .product-feature {
@@ -145,6 +147,11 @@
     font-size: 1.5em;
     font-weight: bold;
     color: #00af6c;
+    margin-left: 15px;
+}
+
+.product-price i {
+    margin-right: 5px;
 }
 
 .product-header {
@@ -176,6 +183,7 @@
     border: 1px solid #f7f8f9;
 }
 
+
 /*----------------------------------------------------------------------get_product.html*/
 
 .buy-product-container {
@@ -200,6 +208,11 @@
     color: #00af6c;
     font-size: 2em;
     font-weight: bold;
+    margin-left: 13px;
+}
+
+.buy-product-price i {
+    margin-right: 7px;
 }
 
 .sub-header {

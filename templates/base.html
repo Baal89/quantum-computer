@@ -27,10 +27,14 @@
                     {% if user.is_authenticated %}
 
                     <a class="auth" href="{% url 'logout' %}">Logout |</a>
-                    <a class="auth" href="{% url 'profile' %}">Profile</a> {% else %}
+                    <a class="auth" href="{% url 'profile' %}">Profile</a> 
+                    
+                    {% else %}
 
                     <a class="auth" href="{% url 'login' %}">Login |</a></li>
-                    <a class="auth" href="{% url 'registration' %}">Register</a> {% endif %}
+                    <a class="auth" href="{% url 'registration' %}">Register</a> 
+                    
+                    {% endif %}
                 </div>
             </div>
         </div>
