@@ -21,11 +21,10 @@ def get_product(request, id):
     args = {'product': product}
     return render(request, 'get_product.html', args)
     
-class amd_processors(ListView):
-    template_name = 'amd_processors.html'
-    model = Product
-    
-    def get_context_data(self, **kwargs):
-        context = super(amd_processors, self).get_context_data(**kwargs)
-        context['product_type'] = 'AMD_CPU'
-        return context
+def category(request):
+    """
+    A view that return the specified category
+    """
+    products = Product.objects.get('AMD_CPU')
+    args = {'products': products}
+    return render(request, 'category.html', args)
