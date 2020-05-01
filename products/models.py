@@ -5,15 +5,15 @@ from django.db import models
 class Product(models.Model):
     TYPE_AMD_CPU = 'AMD_CPU'
     TYPE_INTEL_CPU = 'Intel_CPU'
-    TYPE_AMD_CARD = 'AMD_graphics_cards'
-    TYPE_NVIDIA_CARD = 'Nvidia_graphics_cards'
+    TYPE_AMD_CARD = 'AMD_graphic_cards'
+    TYPE_NVIDIA_CARD = 'Nvidia_graphic_cards'
     TYPE_MOTHERBOARD = 'Motherboard'
     TYPE_STORAGE = 'Storage'
     TYPE_CHOICES = (
         (TYPE_AMD_CPU, 'AMD CPU'),
         (TYPE_INTEL_CPU, 'Intel CPU'),
-        (TYPE_AMD_CARD, 'AMD graphics cards'),
-        (TYPE_NVIDIA_CARD, 'Nvidia graphics cards'),
+        (TYPE_AMD_CARD, 'AMD graphic cards'),
+        (TYPE_NVIDIA_CARD, 'Nvidia graphic cards'),
         (TYPE_MOTHERBOARD, 'Motherboard'),
         (TYPE_STORAGE, 'Storage'),
     )

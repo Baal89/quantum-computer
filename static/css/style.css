@@ -6,11 +6,13 @@
     font-family: 'Roboto', sans-serif;
     color: #fff;
     font-size: 30px;
+    padding: 15px;
+    background-color: #e4002b;
 }
 
 .navbar-brand:hover {
     text-decoration: none;
-    color: #e4002b;
+    color: black;
 }
 
 .auth {
