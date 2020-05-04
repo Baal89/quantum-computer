@@ -61,6 +61,13 @@
 
 /*----------------------------------------------------------------------index.html*/
 
+.accountform {
+    padding: 45px 0;
+    margin-bottom: 75px;
+}
+
+/*-------------------------------------------------------------------register.html*/
+
 .d-md-block {
     text-transform: uppercase;
     padding: 1em;
