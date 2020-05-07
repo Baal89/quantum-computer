@@ -28,7 +28,13 @@
 
                     <a class="auth" href="{% url 'logout' %}">Logout |</a>
                     <a class="auth" href="{% url 'profile' %}">Profile</a> 
-                    
+                    <a class="auth" href="{% url 'view_cart' %}">
+                        <i class="fas fa-shopping-cart"></i>Cart
+                        {% if product_count > 0 %}
+                            <label class="badge badge-warning">{{ product_count }}</label>
+                        {% endif %}
+                    </a>
+                        
                     {% else %}
 
                     <a class="auth" href="{% url 'login' %}">Login |</a></li>
@@ -37,6 +43,13 @@
                     {% endif %}
                 </div>
             </div>
+        </div>
+
+        <div class="container-fluid searchbar">
+            <form action="{% url 'search' %}" method="get" class="form-inline" id="search">
+                <input type="search" id="searchbox" name="q" class="form-control mr-sm-2" placeholder="Looking for something?" aria-label="Search">
+                <a role="button" type="submit"><span></a>
+            </form>
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -54,27 +67,17 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{% url 'category' type='AMD_CPU' %}">AMD Processors</a>
-                            <a class="dropdown-item" href="#">Intel Processors</a>
-                            <a class="dropdown-item" href="{% url 'category' type='Nvidia_graphic_cards' %}">Nvidia Graphic Card</a>
+                            <a class="dropdown-item" href="{% url 'category' type='Intel_CPU' %}">Intel Processors</a>
+                            <a class="dropdown-item" href="{% url 'category' type='Nvidia_graphic_cards' %}">Nvidia Graphic Cards</a>
+                            <a class="dropdown-item" href="{% url 'category' type='AMD_graphic_cards' %}">AMD Graphic Cards</a>
+                            <a class="dropdown-item" href="{% url 'category' type='Motherboard' %}">Motherboard</a>
+                            <a class="dropdown-item" href="{% url 'category' type='Storage' %}">Storage</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'view_cart' %}">
-                                <i class="fas fa-shopping-cart"></i>Cart
-                                {% if product_count > 0 %}
-                                    <label class="badge badge-warning">{{ product_count }}</label>
-                                {% endif %}
-                            </a>
+                        <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
                     </li>
                 </ul>
-                <form action="{% url 'search' %}" method="get" class="form-inline" id="search">
-                    <input type="search" id="searchbox" name="q" class="form-control mr-sm-2" placeholder="Looking for something?" aria-label="Search">
-                    <a role="button" type="submit"><span><i class="fas fa-search icon"></i></span></a>
-                </form>
-            </div>
             </div>
         </nav>
         {% if messages %}

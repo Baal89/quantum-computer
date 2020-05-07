@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %} 
+{% block content %}
+
+<div class="section">
+    <div class="container accountform">
+        <h1>Contact</h1>
+        <form role="form" action="{% url 'contact_us' %}" method="POST">
+            {% csrf_token %}
+            {{ form | as_bootstrap }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
