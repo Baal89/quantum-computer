@@ -28,10 +28,12 @@
 
                     <a class="auth" href="{% url 'logout' %}">Logout |</a>
                     <a class="auth" href="{% url 'profile' %}">Profile</a> 
-                    <a class="auth" href="{% url 'view_cart' %}">
-                        <i class="fas fa-shopping-cart"></i>Cart
+                    <a class="auth" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i>Cart
+                        
                         {% if product_count > 0 %}
+                        
                             <label class="badge badge-warning">{{ product_count }}</label>
+                            
                         {% endif %}
                     </a>
                         

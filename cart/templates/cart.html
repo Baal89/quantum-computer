@@ -4,10 +4,13 @@
 
 {% block content %}
 <section>
-    <div class="container">
+    <div class="container accountform">
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <h2>Your Shopping Basket</h2>
+            </div>
+            <div class="col-6 text-right">
+                <h6>unit price:</h6>
             </div>
         </div>
       
@@ -25,35 +28,35 @@
                                 {% csrf_token %}
 
                                 <div class="form-group">
-                                    <label for="exampleInputAmount" class="sr-only">New Qty</label>
                                     <div class=" input-group">
-                                        <div class="input-group-addon">Quantity</div>
-                                        <input name="quantity" type="number" min="0" max="999" class="form-control">
-                                        <div class="input-group-addon quantity">{{ item.quantity }}</div>
+                                        <div class="input-group-addon">Quantity<span></span></div>
+                                        <input value="{{ item.quantity }}" name="quantity" type="number" min="0" max="999" class="form-control" placeholder="{{ item.quantity }}">
                                     </div>
                                 </div>
                                 <button type="submit" id="modify" class="view-product">Modify</button>
                             </form>
                         </div>
                     </div>
+                    <div class="col-6 cart-item-price">
+                        <p class="buy-product-price" id="cart-price"><i class="fas fa-pound-sign"></i>{{ item.product.price }}</p>
+                    </div>
                 </div>
             </div>
             {% endfor %}
    
         <div class="row">
-            <div class="col-8">
-
-            </div>
-
-            <div class="col-4">
-                <div class="row d-flex align-items-center">
-                    <p class="col-6">Total:</p>
-                    <p class="col-6 product-price">{{ total }}</p>
+            <div class="col-12 total">
+                <p>Total:</p>
+                <p class="product-price">{{ total }}</p>
+                
+                {% if user.is_authenticated %}
                     <a href="{% url 'checkout' %}" class="view-product" role="button" id="checkout">Checkout</a>
-                </div>
+                {% else %}
+                    <a href="#" class="disabled" role="button" id="checkout">Checkout</a>
+                {% endif %}
+                
             </div>
         </div>
-
 
     </div>
 </section>

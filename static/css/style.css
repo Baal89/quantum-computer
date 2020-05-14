@@ -247,6 +247,15 @@ span {
     background-color: #fff
 }
 
+.price {
+    margin-top: 70px;
+}
+
+#add {
+    margin-top: 5px;
+    width: 300px;
+}
+
 /*----------------------------------------------------------------------cart.html*/
 
 .checkout-image  {
@@ -255,7 +264,6 @@ span {
 }
 
 #modify {
-    margin-left: 15px;
     margin-top: 0;
     padding: 10px 40px;
 }
@@ -273,6 +281,14 @@ span {
     margin-top: 25px;
 }
 
+.cart-item-price {
+    font-size: 10px;
+    text-align: right;
+}
+
+.total {
+    text-align: right;
+}
 /*----------------------------------------------------------------------footer*/
 
 

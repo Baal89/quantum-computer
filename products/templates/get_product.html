@@ -3,7 +3,7 @@
 {% block content %}
 
 <section>
-    <div class="container">
+    <div class="container accountform">
         <div class="row buy-product-container">
             <h2 class="col-12 buy-product-header">{{ product.name }}</h2>
             <p class="col-12 buy-product-feature">{{ product.feature }}</p>
@@ -12,13 +12,13 @@
             <div class="col-4 col-md-4">
                 <img class="img-fluid" src="{{ MEDIA_URL }}{{ product.image }}">
             </div>
-            <div class="col-8 col-md-8">
+            <div class="col-8 col-md-8 price">
                 <p class="buy-product-price"><i class="fas fa-pound-sign"></i>{{ product.price }}<span>inc vat</span></p>
                 <form method="POST" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}
                     <div class="input-group col-6">
-                        <input id="quantity" name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                        <button class="input-group-btn" type="submit">Add to basket</button>
+                        <input id="quantity" name="quantity" type="hidden" value="1" class="form-control">
+                        <button class="view-product" id="add" type="submit">Add to basket</button>
                     </div>
                 </form>
             </div>
