@@ -17,10 +17,15 @@
                 {{ user_form | as_bootstrap }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
+                <button class="view-product" type="submit">Update</button>
             </div>
         </form>
     </div>
+    
+    {% for purchase in purchases %}
+         {{ purchase.user }} {{ purchase.quantity }} 
+    {% endfor %}
+    
 </div>
 
 {% endblock %}

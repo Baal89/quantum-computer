@@ -3,6 +3,7 @@ from django.contrib import messages, auth
 from .forms import UserLoginForm, UserRegistrationForm, UserUpdateForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from checkout.models import OrderLineItem
 
 
 
@@ -50,17 +51,19 @@ def login(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
+    purchases = OrderLineItem.objects.all()
+
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
         
         if user_form.is_valid:
             user_form.save()
-            messages.success(request, f'Your account has been updated!')
-            return redirect('login')
+            messages.success(request, 'Your account has been updated!')
+            return redirect('profile')
     else:
         user_form = UserUpdateForm(instance=request.user)
     
-    args = {'user_form': user_form}
+    args = {'user_form': user_form, 'purchases': purchases}
     return render(request, 'profile.html', args)
 
 

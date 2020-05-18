@@ -1,21 +1,21 @@
 {% extends "base.html" %}
-{% load static from staticfiles %}
+{% load static from staticfiles %} 
 {% load bootstrap_tags %}
 
 {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
     //<![CDATA[
-        Stripe.publishableKey = '{{ publishable }}';
+    Stripe.publishableKey = '{{ publishable }}';
     //]]>
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
-{% endblock %}
+
+{% endblock %} 
 
 {% block content %}
-
 <section>
-    <div class="container">
+    <div class="container accountform">
         <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
             <legend>Payment Details</legend>
 
@@ -33,10 +33,9 @@
 
             {% csrf_token %}
             <div class="form-group col-md-12">
-                <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                <button class="view-product" type="submit">Submit</button>
             </div>
         </form>
     </div>
 </section>
-
 {% endblock %}

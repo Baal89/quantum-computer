@@ -44,19 +44,21 @@
             </div>
             {% endfor %}
    
-        <div class="row">
-            <div class="col-12 total">
-                <p>Total:</p>
-                <p class="product-price">{{ total }}</p>
+            <div class="row">
+                <div class="col-12 total">
+                    <p>Total:</p>
+                    <p class="product-price">{{ total }}</p>
+        
+                {% if product_count > 0 %}
                 
-                {% if user.is_authenticated %}
-                    <a href="{% url 'checkout' %}" class="view-product" role="button" id="checkout">Checkout</a>
+                    <a href="{% url 'checkout' %}" class="view-product" role="button" id="checkout">Checkout</a>    
                 {% else %}
-                    <a href="#" class="disabled" role="button" id="checkout">Checkout</a>
-                {% endif %}
                 
+                    <a href="#" class="view-product disabled" role="button" id="checkout">Checkout</a> 
+                {% endif %}
+        
+                </div>
             </div>
-        </div>
 
     </div>
 </section>

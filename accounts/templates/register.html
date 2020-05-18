@@ -8,8 +8,10 @@
             <fieldset class="form-group">
                 <legend>Create a new account</legend>
                 <p>Already got an account? <a href="{% url 'login' %}">Sign In</a></p>
-                {% csrf_token %} {{ user_form | as_bootstrap }}
-                <button type="submit" class="btn btn-primary">Create account</button>
+                {% csrf_token %} 
+                
+                {{ user_form | as_bootstrap }}
+                <button type="submit" class="view-product">Create account</button>
             </fieldset>
         </form>
     </div>
