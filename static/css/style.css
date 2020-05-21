@@ -188,6 +188,21 @@
 
 /*----------------------------------------------------------------------get_product.html*/
 
+#review {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.recent-purchased {
+    padding: 10px 0;
+}
+
+.history {
+    margin-bottom: 30px;
+}
+
+/*--------------------------------------------------------------------------profile.html*/
+
 .buy-product-container {
     margin: 30px auto;
 }

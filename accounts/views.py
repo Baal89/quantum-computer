@@ -19,7 +19,7 @@ def logout(request):
 def login(request):
     """
     A view that manages the login form.
-    The firs if statement prevent the access of the login page after the 
+    The first if statement prevent the access of the login page after the 
     user is logged in.
     """
     if request.user.is_authenticated:
@@ -51,7 +51,7 @@ def login(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-    purchases = OrderLineItem.objects.all()
+    purchases = OrderLineItem.objects.filter(order__user=request.user)
 
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)

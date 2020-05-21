@@ -28,6 +28,11 @@
             <p class="col-12 description">{{ product.description }}</p>
         </div>
     </div>
+    
+    {% for review in reviews %}
+        {{ review.title }} {{ review.content }} {{ review.image }} {{ review.create_date }}
+    {% endfor %}
+    
 </section>
 
 {% endblock %}

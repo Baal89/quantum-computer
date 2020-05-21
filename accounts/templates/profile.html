@@ -2,6 +2,7 @@
 {% load bootstrap_tags %} 
 {% block content %}
 
+<!-- This template allowed the users to see and update their own profile information --> 
 <div class="section">
     <div class="container accountform">
         <div class="media">
@@ -22,10 +23,23 @@
         </form>
     </div>
     
+    <!-- This template rendered the item purchased from the current user and allow the latter to leave a review 
+    to the selected item -->
+    <div class="container history">
+        <div class="row">
+            <h3 class="col-12">Your Orders</h3>
+        </div>
     {% for purchase in purchases %}
-         {{ purchase.user }} {{ purchase.quantity }} 
+    <div class="row recent-purchased">
+        <ul class="col-8">
+            <li>{{ purchase.product }}, {{ purchase.order }}</li>
+        </ul>
+        <div class="col-4">
+            <a href="{% url 'new_review' %}" role="button" class="view-product" id="review">Leave a Review</a>
+        </div>
+    </div>
     {% endfor %}
-    
+    </div>
 </div>
 
 {% endblock %}

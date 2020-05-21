@@ -11,36 +11,41 @@ class UserLoginForm(forms.Form):
 
 
 class UserRegistrationForm(UserCreationForm):
-    password1 = forms.CharField(
-        label='Password', 
-        widget=forms.PasswordInput)
-    password2 = forms.CharField(
-        label='Password Confirmation',
-        widget=forms.PasswordInput
-    )
+    """Form used to register a new user"""
+
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Password Confirmation", widget= forms.PasswordInput)
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name','username', 'email', 'password1', 'password2']
+        fields = ['email', 'username', 'password1', 'password2']
 
     def clean_email(self):
+        """
+        Validation form to prevent one email address to have
+        multiple accounts
+        """
         email = self.cleaned_data.get('email')
         username = self.cleaned_data.get('username')
         if User.objects.filter(email=email).exclude(username=username):
-            raise forms.ValidationError(u'Email addresses must be unique.')
+            raise forms.ValidationError(u'Email address must be unique')
         return email
 
     def clean_password2(self):
+        """
+        Validation to make sure that the password enterd is correct 
+        and match for two times
+        """
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
 
         if not password1 or not password2:
-            raise ValidationError("Password must not be empty")
+            raise ValidationError("Please confirm your password")
 
         if password1 != password2:
-            raise ValidationError("Passwords do not match")
+            raise ValidationError("Passwords must match")
 
-        return password2
+        return password2 
         
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()

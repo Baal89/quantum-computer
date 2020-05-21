@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'products',
     'search',
     'storages',
+    'reviews',
 ]
 
 MIDDLEWARE = [
@@ -152,7 +153,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 
 STATICFILES_LOCATION = 'static'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+DEFAULT_FILE_STORAGE = 'Custom_storages.MediaStorage'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
