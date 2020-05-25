@@ -2,14 +2,17 @@ from django.views.generic.list import ListView
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Product
+from checkout.models import OrderLineItem
+from reviews.models import Review
 
 def get_product(request, id):
     """
     A view that return the selected product
     """
     product = Product.objects.get(id=id)
+    reviews = Review.objects.filter(product=product.id).order_by('-create_date')
     
-    args = {'product': product}
+    args = {'product': product, 'reviews': reviews}
     return render(request, 'get_product.html', args)
     
 def category(request, type):

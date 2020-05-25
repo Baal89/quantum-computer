@@ -23,22 +23,31 @@
         </form>
     </div>
     
-    <!-- This template rendered the item purchased from the current user and allow the latter to leave a review 
-    to the selected item -->
+    <!-- This template rendered the item purchased from the current user -->
     <div class="container history">
         <div class="row">
             <h3 class="col-12">Your Orders</h3>
         </div>
-    {% for purchase in purchases %}
-    <div class="row recent-purchased">
-        <ul class="col-8">
-            <li>{{ purchase.product }}, {{ purchase.order }}</li>
-        </ul>
-        <div class="col-4">
-            <a href="{% url 'new_review' %}" role="button" class="view-product" id="review">Leave a Review</a>
-        </div>
-    </div>
-    {% endfor %}
+        
+    {% if purchases %}  
+        {% for purchase in purchases %}
+        
+            <div class="row recent-purchased">
+                <ul class="col-8">
+                    <a href="{% url 'get_product' purchase.product.id %}">
+                        <li>{{ purchase.order.user }}, {{ purchase.product }}, {{ purchase.order.date }} </li>
+                    </a>
+                    <a type="button" href="{% url 'new_review' purchase.product.id %}">Write a customer review</a>
+                </ul>
+            </div>
+            
+        {% endfor %}
+    {% else %}
+    
+            <p>You did not buy anything yet!</p>
+            
+    {% endif %}
+    
     </div>
 </div>
 

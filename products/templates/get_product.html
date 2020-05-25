@@ -14,13 +14,27 @@
             </div>
             <div class="col-8 col-md-8 price">
                 <p class="buy-product-price"><i class="fas fa-pound-sign"></i>{{ product.price }}<span>inc vat</span></p>
+                
+                {% if user.is_authenticated %}
                 <form method="POST" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}
+                  
                     <div class="input-group col-6">
                         <input id="quantity" name="quantity" type="hidden" value="1" class="form-control">
                         <button class="view-product" id="add" type="submit">Add to basket</button>
                     </div>
                 </form>
+                {% else %}
+                
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                  
+                    <div class="input-group col-6">
+                        <button class="view-product" id="add" type="submit">Login to Buy</button>
+                    </div>
+                </form>
+                {% endif %}
+                
             </div>
         </div>
         <div class="row">
@@ -29,9 +43,19 @@
         </div>
     </div>
     
-    {% for review in reviews %}
-        {{ review.title }} {{ review.content }} {{ review.image }} {{ review.create_date }}
-    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <h3>Customer Reviews</h3>
+            </div>
+            <div class="col-3">
+                
+            </div>
+        </div>
+        {% for review in reviews %}
+            {{ review.title }} {{ review.content }} {{ review.user }} {{ review.image }} {{ review.create_date }}
+        {% endfor %}
+    </div>
     
 </section>
 

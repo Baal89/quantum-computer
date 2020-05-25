@@ -29,14 +29,10 @@
                             <div class="col-12 col-md-4">
                                 <p class="product-price"><i class="fas fa-pound-sign"></i>{{ product.price }}<span>inc vat</span></p>
                                 <form method="POST" action="{% url 'get_product' product.id %}">
+                                    
                                     {% csrf_token %}
                                     
-                                    {% if user.is_authenticated %}
-                                        <button type="submit" class="view-product">View Product</button>
-                                    {% else %}
-                                        <a href="{% url 'login' %}" class="view-product disabled" tabindex="-1" role="button" aria-disabled="true">Login First</a>
-                                    {% endif %}
-                                    
+                                    <button type="submit" class="view-product">View Product</button>
                                 </form>
                             </div>
                         </div>

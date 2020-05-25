@@ -1,5 +1,4 @@
 from django.db import models
-from reviews.models import Review
 
 # Create your models here.
 
@@ -26,7 +25,6 @@ class Product(models.Model):
     feature = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(upload_to='images')
-    review = models.ForeignKey(Review, null=True, on_delete = models.CASCADE)
     
     def __str__(self):
         return self.name
