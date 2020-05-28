@@ -2,8 +2,8 @@
 {% load bootstrap_tags %} 
 {% block content %}
 
-<div class="section">
-    <div class="container accountform">
+<div class="section box">
+    <div class="container accountform" >
         <h1>Contact</h1>
         <form role="form" action="{% url 'contact_us' %}" method="POST">
             {% csrf_token %}

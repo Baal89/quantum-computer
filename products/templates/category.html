@@ -29,7 +29,7 @@
                             <div class="col-12 col-md-4">
                                 <p class="product-price"><i class="fas fa-pound-sign"></i>{{ product.price }}<span>inc vat</span></p>
                                 <form method="POST" action="{% url 'get_product' product.id %}">
-                                    
+                                    {{ average_rating }}
                                     {% csrf_token %}
                                     
                                     <button type="submit" class="view-product">View Product</button>

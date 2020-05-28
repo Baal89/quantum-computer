@@ -26,22 +26,29 @@
     <!-- This template rendered the item purchased from the current user -->
     <div class="container history">
         <div class="row">
-            <h3 class="col-12">Your Orders</h3>
+            <h2 class="col-12">Your Orders</h2>
         </div>
         
-    {% if purchases %}  
+    {% if purchases %}
+        <div class="row recent-purchased">
         {% for purchase in purchases %}
         
-            <div class="row recent-purchased">
-                <ul class="col-8">
+            <div class="col-md-4 profile-info">
+                <div class="card" style="width: 18rem;">
                     <a href="{% url 'get_product' purchase.product.id %}">
-                        <li>{{ purchase.order.user }}, {{ purchase.product }}, {{ purchase.order.date }} </li>
+                        <div class="profile-product" style="background-image: url( {{ MEDIA_URL }}{{ purchase.product.image }} )"></div>
                     </a>
-                    <a type="button" href="{% url 'new_review' purchase.product.id %}">Write a customer review</a>
-                </ul>
+                    <div class="card-body">
+                        <h5 class="profile-card-title">{{ purchase.product }}</h5>
+                        <p class="card-text">date: {{ purchase.order.date }}</p>
+                        <p class="card-text">price: {{ purchase.product.price }}</p>
+                        <a href="{% url 'new_review' purchase.product.id %}" class="btn btn-outline-secondary">Make a review</a>
+                    </div>
+                </div>
             </div>
-            
+                        
         {% endfor %}
+        </div>
     {% else %}
     
             <p>You did not buy anything yet!</p>
@@ -52,3 +59,4 @@
 </div>
 
 {% endblock %}
+

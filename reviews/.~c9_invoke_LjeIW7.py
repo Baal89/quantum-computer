@@ -28,3 +28,14 @@ def create_review(request, id):
         form = ReviewForm()
     return render(request, 'reviewform.html', {'form': form})
     
+
+
+
+
+
+
+
+
+
+
+

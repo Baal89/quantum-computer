@@ -1,13 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@669;700&family=Roboto&display=swap');
 
 /*----------------------------------------------------------------------base.html*/
 
 .navbar-brand {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     color: #fff;
     font-size: 30px;
     padding: 15px;
-    background-color: #e4002b;
+    background-color: #d92328;
+    position: absolute;
+    top: -12px;
+}
+
+.bg-dark {
+    background-color:#333538 !important;
+}
+
+.dropdown-item:hover {
+    background-color: #d92328 !important;
+    color: #fff;
 }
 
 .navbar-brand:hover {
@@ -25,7 +36,11 @@
 }
 
 #header {
-    background-color: #181818;
+    background-color: #222222;
+}
+
+.log {
+    padding-top: 15px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -67,7 +82,7 @@
     min-height: 45px;
     padding-top: 7px;
     padding-bottom: 45px;
-    background-color: #1e242b;
+    background-color: #222222;
 }
 
 /*----------------------------------------------------------------------index.html*/
@@ -125,8 +140,13 @@
 }
 
 .card-header {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
     text-align: center;
+    color: white;
+    background-color:#d92328;
+    margin-left: 20px;
+    margin-right: 20px
 }
 
 /*----------------------------------------------------------------------category.html*/
@@ -186,7 +206,7 @@
     font-size: 20px;
 }
 
-/*----------------------------------------------------------------------get_product.html*/
+/*----------------------------------------------------------------------profile.html*/
 
 #review {
     padding-top: 10px;
@@ -201,7 +221,22 @@
     margin-bottom: 30px;
 }
 
-/*--------------------------------------------------------------------------profile.html*/
+.profile-product {
+    height: 140px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.profile-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-card-title {
+    font-size: 15px;
+}
+
+/*--------------------------------------------------------------------------get_product.html*/
 
 .buy-product-container {
     margin: 30px auto;
@@ -237,7 +272,7 @@
 }
 
 .description {
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 5px;
 }
 
@@ -270,6 +305,26 @@ span {
 #add {
     margin-top: 5px;
     width: 300px;
+}
+
+.reviews {
+    margin: 20px auto 40px auto;
+}
+
+.user-review {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.review-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 7px;
+}
+
+.star {
+    color: #f4c35d;
+    font-size: 15px;
 }
 
 /*----------------------------------------------------------------------cart.html*/
@@ -305,11 +360,21 @@ span {
 .total {
     text-align: right;
 }
+/*-----------------------------------------------------------------contact.html*/
+
+.box {
+    min-height: 1000px
+}
+
+#reset {
+    padding: 10px 10px 5px 10px;
+}
+
 /*----------------------------------------------------------------------footer*/
 
 
 footer {
-    background-color: #1e242b;
+    background-color: #d92328;
     color: white;
 }
 
@@ -321,7 +386,7 @@ footer a {
 footer i {
     margin-top: 20px;
     font-size: 20px;
-    color: #181818;
+    color: #222;
     background-color: #fff;
     transition: color 0.2s ease-in-out;
     border-radius: 100%;
@@ -329,7 +394,7 @@ footer i {
 }
 
 footer i:hover {
-    color: #e4002b;
+    color: #d92328;
     text-decoration: none;
 }
 
@@ -337,7 +402,7 @@ footer i:hover {
 footer p {
     font-size: 15px;
     line-height: 12px;
-    color: #989898;
+    color: #fff;
 }
 
 .details-header {
@@ -351,7 +416,7 @@ footer p {
 }
 
 .credit {
-    background-color: #181818;
+    background-color: #333538;
     padding: 15px 0;
     margin: 0;
 }
@@ -370,3 +435,5 @@ footer p {
         font-size: 15px;
     }
 }
+
+

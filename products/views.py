@@ -12,7 +12,18 @@ def get_product(request, id):
     product = Product.objects.get(id=id)
     reviews = Review.objects.filter(product=product.id).order_by('-create_date')
     
-    args = {'product': product, 'reviews': reviews}
+    reviews_total = 0
+    reviews_count = 0
+    if reviews:
+        for review in reviews:
+            reviews_total += review.rating
+            reviews_count += 1
+            
+            average_rating = reviews_total / reviews_count
+    else:
+        average_rating = 0
+    
+    args = {'product': product, 'reviews': reviews, 'average_rating': average_rating}
     return render(request, 'get_product.html', args)
     
 def category(request, type):
@@ -20,6 +31,7 @@ def category(request, type):
     A view that return the specified category of products
     and implement a pagination system for the pages.
     """
+    
     products = Product.objects.filter(product_type=type)
     page = request.GET.get('page', 1)
     
