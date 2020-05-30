@@ -10,7 +10,7 @@ def get_product(request, id):
     A view that return the selected product
     """
     product = Product.objects.get(id=id)
-    reviews = Review.objects.filter(product=product.id).order_by('-create_date')
+    reviews = Review.objects.filter(product=product).order_by('-create_date')
     
     reviews_total = 0
     reviews_count = 0
@@ -19,12 +19,13 @@ def get_product(request, id):
             reviews_total += review.rating
             reviews_count += 1
             
-            average_rating = reviews_total / reviews_count
+        average_rating = round((reviews_total / reviews_count) * 2) /2
+            
     else:
         average_rating = 0
     
     args = {'product': product, 'reviews': reviews, 'average_rating': average_rating}
-    return render(request, 'get_product.html', args)
+    return render(request, 'get_product.html', args, round(average_rating * 2) / 2)
     
 def category(request, type):
     """
@@ -33,6 +34,7 @@ def category(request, type):
     """
     
     products = Product.objects.filter(product_type=type)
+        
     page = request.GET.get('page', 1)
     
     paginator = Paginator(products, 6)

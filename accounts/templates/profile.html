@@ -33,16 +33,18 @@
         <div class="row recent-purchased">
         {% for purchase in purchases %}
         
-            <div class="col-md-4 profile-info">
+            <div class="col-12 col-md-6 col-lg-4 profile-info">
                 <div class="card" style="width: 18rem;">
                     <a href="{% url 'get_product' purchase.product.id %}">
                         <div class="profile-product" style="background-image: url( {{ MEDIA_URL }}{{ purchase.product.image }} )"></div>
                     </a>
                     <div class="card-body">
                         <h5 class="profile-card-title">{{ purchase.product }}</h5>
-                        <p class="card-text">date: {{ purchase.order.date }}</p>
-                        <p class="card-text">price: {{ purchase.product.price }}</p>
-                        <a href="{% url 'new_review' purchase.product.id %}" class="btn btn-outline-secondary">Make a review</a>
+                        <p class="card-text">Date: {{ purchase.order.date }}</p>
+                        <p class="card-text">Price: <i class="fas fa-pound-sign"></i> <strong>{{ purchase.product.price }}</strong></p>
+                        <div class="history-button text-center">
+                            <a href="{% url 'new_review' purchase.product.id %}" class="view-product" id="history-button">Make a review</a>
+                        </div>
                     </div>
                 </div>
             </div>
