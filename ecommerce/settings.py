@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-#import env
+import env
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -153,7 +153,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 
 STATICFILES_LOCATION = 'static'
-DEFAULT_FILE_STORAGE = 'Custom_storages.MediaStorage'
+STATICFILES_STORAGE = 'Custom_storages.StaticStorage'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
