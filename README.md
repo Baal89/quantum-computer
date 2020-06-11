@@ -206,6 +206,9 @@ To prevent the publication of sensitive data on a public repository in GitHub, I
 - `/.c9/`
 - `env.py`
 
+the env.py contains all the secret key and password used by the site. When I deployed the file on Heroku, I stopped importing the env file locally, 
+then I added the environmental variable as Vars in Heroku in the same way as `key`, `value`.
+
 ## Credit
 
 ### Content
